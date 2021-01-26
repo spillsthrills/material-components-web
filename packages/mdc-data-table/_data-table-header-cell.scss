@@ -34,6 +34,7 @@
 @use '@material/typography/typography';
 @use './data-table-theme';
 @use './data-table-cell';
+@use '@material/ripple/ripple-theme';
 
 @mixin core-styles($query: feature-targeting.all()) {
   $feat-structure: feature-targeting.create-target($query, structure);
@@ -110,7 +111,12 @@
       opacity: 0;
     }
 
-    &:focus,
+    @include ripple-theme.focus() {
+      @include feature-targeting.targets($feat-structure) {
+        opacity: 1;
+      }
+    }
+
     .mdc-data-table__header-cell:hover &,
     .mdc-data-table__header-cell--sorted & {
       @include feature-targeting.targets($feat-structure) {

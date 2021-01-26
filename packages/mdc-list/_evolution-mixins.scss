@@ -1162,7 +1162,7 @@
     padding: 8px 0;
     list-style-type: none;
 
-    &:focus {
+    @include ripple-theme.focus() {
       outline: none;
     }
   }
@@ -1178,7 +1178,7 @@
     overflow: hidden;
     padding: 0;
 
-    &:focus {
+    @include ripple-theme.focus() {
       outline: none;
     }
   }
